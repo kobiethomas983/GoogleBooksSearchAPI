@@ -10,7 +10,10 @@ class BooksApp extends Component{
         return (
             <Router>
                 <>
-                <h1 className='app-header'>Books Application</h1>
+                <div className="container">
+                <h1 className='app-header'>Books Search</h1>
+                </div>
+        
                 <Switch>
                     <Route path='/' exact component={listedBooks}/>
                     <Route path='/books' exact component={listedBooks}/>

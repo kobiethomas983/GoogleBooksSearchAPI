@@ -6,8 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+#root .container{
+  margin-top: 50px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.card{
+  width: 20em;
+  margin-bottom: 30px;
+
+}
+
+.card-img-top{
+  height:200px;
 }

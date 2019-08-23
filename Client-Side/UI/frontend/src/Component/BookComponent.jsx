@@ -6,7 +6,7 @@ class BookComponent extends Component{
         super(props);
         this.state ={
             //this should match the isbn
-            id: this.props.match.params.id,
+            id: this.props.match.params.isbn,
            book: {}
         }
     }
@@ -39,26 +39,29 @@ class BookComponent extends Component{
         
         BookService.deleteBook(id)
         .then( () => this.props.history.push(`/books`));
-        ;
     }
     render(){
-        let{id,title,author,price} = this.state;
+      // let author = this.state.book.authors.split(",");
+       //console.log(author);
         return(
-            <div className='card'>
-                <img className="card-img-top" src="..." alt="Card image cap"></img>
-                 <div className="card-body">
-                    <h5 className="card-title">Title: {title}</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div className="row justify-content-center">
+                <div className="col-4">
+                        <div className='card'>
+                            <img className="card-img-top" src={this.state.book.thumbnail} alt="Card image cap"></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Title: {this.state.book.title}</h5>
+                                    <p className="card-text">Category: {this.state.book.categories}</p>
+                                </div>
+                                <ul className="list-group list-group-flush">
+                                <li className="list-group-item">Author: {this.state.book.authors}</li>
+                                <li className="list-group-item">Rating: {this.state.book.averageRating}</li>
+                                </ul>
+                                <div className="card-body">
+                            </div>
+                        </div>
                 </div>
-                <ul className="list-group list-group-flush">
-                <li className="list-group-item">Author: {author}</li>
-                <li className="list-group-item">Price: {price}</li>
-                </ul>
-                <div className="card-body">
-                    <a onClick={() =>this.editBook(id)} id="buttonOne" className="btn btn-success">Edit Book</a>
-                    <a onClick={() => this.deleteBook(id)} id="buttonTwo" className="btn btn-danger">Delete Book</a>
-                </div>
-            </div>
+         </div>
+           
            
         );
     }

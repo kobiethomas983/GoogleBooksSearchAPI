@@ -60,23 +60,27 @@ class ShowAllBooks extends Component{
         var shortenString =  str.substr(0, str.lastIndexOf(separator, maxLen));
         return(
             <div>
-                <p className="card-text">Descripion: {shortenString}...</p>
+                <p className="card-text"><strong>Description:</strong> {shortenString}...</p>
             </div>
         )
       }
 
+      
+
     render(){
     console.log('rendering...');
     let booksArray = this.state.books.map(book => {
+        let parsedAuthor = book.authors.split(',');
+        let parsedIsbn = book.isbn.split(',');
         return (
             <div className="col-sm-4">
                   <div className="card">
-                     <img className="card-img-top" src="..." alt="Card image cap"/>
+                     <img className="card-img-top" src={book.thumbnail} alt="Card image cap"/>
                      <div class="card-body">
-                         <h5 class="card-title">Title: {book.title}</h5>
-                         {this.shorten(book.description,100)}
-                         <p class="card-text">Author: {book.authors[0]}</p>
-                         <a onClick={() => this.selectedBook(book.isbn[0])} className="btn btn-primary">View Book</a>
+                         <h5 class="card-title"><strong>Title:</strong> {book.title}</h5>
+                         {this.shorten(book.description,80)}
+                         <p class="card-text"><strong>Author:</strong> {parsedAuthor[0]}</p>
+                         <a onClick={() => this.selectedBook(parsedIsbn[0])} className="btn btn-primary">View Book</a>
                      </div>
                  </div>
             </div>
