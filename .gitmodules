@@ -1,3 +1,2 @@
-[submodule "Server-Side/RESTfulbooks"]
 	path = Server-Side/RESTfulbooks
 	url = https://github.com/kobiethomas983/RESTfulbooks.git
